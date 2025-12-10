@@ -26,6 +26,10 @@
 			}];
 		};
 	};
+	firewall = {
+		enable = true;
+		allowedUDPPorts = [ 9 ];
+	};
 
 	defaultGateway = "193.136.164.222";
 	nameservers = [ "1.1.1.1" ];
@@ -101,12 +105,6 @@
 
   programs.firefox.enable = true;
 
-  networking = {
-  	firewall = {
-		enable = true;
-		allowedUDPPorts = [ 9 ];
-	};
-  };
 
   hardware.graphics.enable = true;
 
