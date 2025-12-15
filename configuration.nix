@@ -9,6 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+
   networking = {
   	hostName = "rnl-simaolavos"; 
 
@@ -54,14 +55,17 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-  services.xserver.enable = true;
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  services.xserver.xkb = {
-    layout = "pt";
-    variant = "";
+  services.xserver = {
+    enable = true;
+    xkb = {
+	layout = "pt";
+	variant = "";
+	options = "caps:swapescape";
+    };
   };
 
   console.keyMap = "pt-latin1";
@@ -105,7 +109,6 @@
 
   programs.firefox.enable = true;
 
-
   hardware.graphics.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -118,8 +121,6 @@
   	enable = true;
 	settings.PasswordAuthentication = false;
 	settings.KbdInteractiveAuthentication = false;
-
-
   };
   
 
