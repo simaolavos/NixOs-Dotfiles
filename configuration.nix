@@ -35,6 +35,11 @@
 	defaultGateway = "193.136.164.222";
 	nameservers = [ "1.1.1.1" ];
   };
+  documentation = {
+	enable = true;
+	man.enable = true;
+	dev.enable = true;	
+  };
 
 
 
