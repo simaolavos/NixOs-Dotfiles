@@ -103,6 +103,7 @@
     git
     unzip
     gnumake
+    libgcc
     alacritty
     neovim
     fastfetch
