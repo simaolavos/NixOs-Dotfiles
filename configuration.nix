@@ -102,6 +102,7 @@
     wget
     git
     unzip
+    gnumake
     alacritty
     neovim
     fastfetch
