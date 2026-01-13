@@ -101,10 +101,13 @@
     spotify
     wget
     git
+    unzip
     alacritty
     neovim
     fastfetch
     wakeonlan
+    dropbox
+    keepass
   ];
 
   programs.firefox.enable = true;
