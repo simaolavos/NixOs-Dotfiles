@@ -109,6 +109,7 @@
     unzip
     gnumake
     gcc
+    man-pages
     alacritty
     neovim
     fastfetch
