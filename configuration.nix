@@ -108,7 +108,7 @@
     git
     unzip
     gnumake
-    libgcc
+    gcc
     alacritty
     neovim
     fastfetch
