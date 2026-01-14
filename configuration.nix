@@ -69,7 +69,7 @@
     xkb = {
 	layout = "pt";
 	variant = "";
-	options = "caps:swapescape";
+	options = "caps:escape";
     };
   };
 
@@ -116,7 +116,6 @@
     fastfetch
     wakeonlan
     dropbox
-    keepass
   ];
 
   programs.firefox.enable = true;
