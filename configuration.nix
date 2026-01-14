@@ -110,6 +110,7 @@
     gnumake
     gcc
     man-pages
+    keepassxc
     alacritty
     neovim
     fastfetch
