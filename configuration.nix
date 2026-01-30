@@ -116,6 +116,7 @@
     fastfetch
     wakeonlan
     dropbox
+	virt-manager
   ];
 
   programs.firefox.enable = true;
