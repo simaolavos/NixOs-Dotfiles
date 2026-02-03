@@ -8,7 +8,7 @@
 	programs.bash = {
 		enable = true;
 		shellAliases = {
-			n = "nvim";
+			n = "vim";
 		};
 	};
  }
