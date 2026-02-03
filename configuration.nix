@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -117,6 +117,7 @@
     wakeonlan
     dropbox
 	virt-manager
+	inputs.agenix.packages."${system}".default
   ];
 
   programs.firefox.enable = true;
@@ -135,6 +136,13 @@
   	enable = true;
 	settings.PasswordAuthentication = false;
 	settings.KbdInteractiveAuthentication = false;
+  };
+
+  age.secrets.secret1 = {
+	file = ./secrets/secret1.age;
+	mode = "440";
+	group = "wheel";
+	
   };
   
 
