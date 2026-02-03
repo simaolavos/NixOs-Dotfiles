@@ -17,12 +17,13 @@
 		};
 	};
 
-	outputs = { nixpkgs, home-manager, ...}: {
+	outputs = { self, nixpkgs, ...}@inputs: {
 		nixosConfigurations.rnl-simaolavos = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
 				./configuration.nix
-				home-manager.nixosModules.home-manager
+				inputs.agenix.nixosModules.default
+				inputs.home-manager.nixosModules.home-manager
 				{
 					home-manager = {
 						useGlobalPkgs = true;
