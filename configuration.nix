@@ -26,6 +26,14 @@
 				prefixLength = 27;
 			}];
 		};
+
+		ipv6 = {
+			addresses = [{
+				address = "2001:690:2100:82::195";
+				prefixLength = 64;
+			}];
+		};
+
 	};
 	firewall = {
 		enable = true;
@@ -102,7 +110,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim 
+    vim-full
     spotify
     wget
     git
@@ -112,12 +120,12 @@
     man-pages
     keepassxc
     alacritty
-    neovim
     fastfetch
     wakeonlan
     dropbox
 	virt-manager
 	inputs.agenix.packages."${system}".default
+	python3
   ];
 
   programs.firefox.enable = true;
