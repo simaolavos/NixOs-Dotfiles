@@ -148,9 +148,8 @@
 
   age.secrets.secret1 = {
 	file = ./secrets/secret1.age;
-	mode = "440";
-	group = "wheel";
-	
+    mode = "440";
+    group = "wheel";
   };
   
 

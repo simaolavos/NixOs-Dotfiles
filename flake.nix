@@ -20,7 +20,7 @@
 	outputs = { self, nixpkgs, ...}@inputs: {
 		nixosConfigurations.rnl-simaolavos = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
-			specialArgs = { inherit inputs; inherit (self) outputs; };
+			specialArgs = { inherit inputs; };
 			modules = [
 				./configuration.nix
 				inputs.agenix.nixosModules.default
