@@ -5,6 +5,11 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +21,7 @@
     let 
       baseModules = [
         inputs.agenix.nixosModules.default
+        inputs.home-manager.nixosModules.default
       ];
     in {
       nixosConfigurations = {
