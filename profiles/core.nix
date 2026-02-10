@@ -80,4 +80,7 @@
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
+
+  hardware.bluetooth.enable = true;
+
 }
