@@ -1,6 +1,6 @@
 { inputs, outputs, pkgs, ...}:
 {
-	
+
   time.timeZone = "Europe/Lisbon";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -30,57 +30,58 @@
       kdePackages.kate
       thunderbird
     ];
-	openssh.authorizedKeys.keys = [
-		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINdDq2tDLBbOuSWGX6oT03uciK7u5HouhaE7DkVlFt/J simaolavos@simaolavos-archlinux"
-	];
-  };
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINdDq2tDLBbOuSWGX6oT03uciK7u5HouhaE7DkVlFt/J simaolavos@simaolavos-archlinux"
+      ];
+      };
 
-  documentation = {
-	enable = true;
-	man.enable = true;
-	dev.enable = true;	
-  };
+      documentation = {
+        enable = true;
+        man.enable = true;
+        dev.enable = true;	
+      };
 
-  environment.systemPackages = with pkgs; [
-    vim-full
-    spotify
-    wget
-    git
-    unzip
-    gnumake
-    gcc
-    man-pages
-	blesh
-    alacritty
-    fastfetch
-    wakeonlan
-    dropbox
-	virt-manager
-	inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
-	python3
-  ];
+      environment.systemPackages = with pkgs; [
+        vim-full
+        spotify
+        wget
+        git
+        unzip
+        gnumake
+        gcc
+        man-pages
+        blesh
+        alacritty
+        fastfetch
+        wakeonlan
+        dropbox
+        virt-manager
+        atuin
+        inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
+        python3
+      ];
 
-  programs.firefox.enable = true;
-  
-  programs.bash = {
-	blesh.enable = true;	
-	interactiveShellInit = "eval \"$(atuin init bash)\"";
-  };
+      programs.firefox.enable = true;
 
-  services.openssh =  {
-  	enable = true;
-	settings.PasswordAuthentication = false;
-	settings.KbdInteractiveAuthentication = false;
-  };
+      programs.bash = {
+        blesh.enable = true;	
+        interactiveShellInit = "eval \"$(atuin init bash)\"";
+      };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+      services.openssh =  {
+        enable = true;
+        settings.PasswordAuthentication = false;
+        settings.KbdInteractiveAuthentication = false;
+      };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
-  };
+      nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  hardware.bluetooth.enable = true;
+      nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
+      };
 
-}
+      hardware.bluetooth.enable = true;
+
+    }
