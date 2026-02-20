@@ -7,6 +7,7 @@
 	  ../profiles/core.nix
       ../profiles/network/rnl-simaolavos.nix
       ../profiles/home.nix
+      ../profiles/desktop.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
