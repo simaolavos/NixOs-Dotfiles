@@ -31,7 +31,7 @@
       thunderbird
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINdDq2tDLBbOuSWGX6oT03uciK7u5HouhaE7DkVlFt/J simaolavos@simaolavos-archlinux"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINdDq2tDLBbOuSWGX6oT03uciK7u5HouhaE7DkVlFt/J simaolavos@dog"
     ];
   };
 
