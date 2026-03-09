@@ -19,5 +19,6 @@
     hyprland
     waybar
     upower
+    wireguard-tools
   ];
 }
