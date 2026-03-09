@@ -15,6 +15,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
     outputs = { self, nixpkgs, ...}@inputs:
@@ -29,6 +40,11 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = baseModules ++ [./hosts/rnl-simaolavos.nix];
+        };
+        dog = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = baseModules ++ [./hosts/dog.nix ./profiles/noctalia.nix];
         };
       };
     };
