@@ -52,6 +52,7 @@
     man-pages
     blesh
     alacritty
+    tealdeer
     dropbox
     atuin
     inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
