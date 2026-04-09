@@ -57,6 +57,7 @@
     atuin
     inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
     python3
+    zed-editor
     ];
 
     programs.firefox.enable = true;
