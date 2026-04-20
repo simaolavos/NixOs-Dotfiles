@@ -2,12 +2,12 @@
 
 {
   imports =
-    [ 
-      ../profiles/hardware/rnl-simaolavos-hw.nix
-	  ../profiles/core.nix
-      ../profiles/network/rnl-simaolavos.nix
-      ../profiles/home.nix
-      ../profiles/desktop.nix
+    [
+      ../../profiles/hardware/rnl-simaolavos-hw.nix
+      ../../profiles/core.nix
+      ../../profiles/network/rnl-simaolavos.nix
+      ./home.nix
+      ../../profiles/desktop.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -20,6 +20,6 @@
     group = "wheel";
   };
 
-  system.stateVersion = "25.05"; 
+  system.stateVersion = "25.05";
 
 }

@@ -29,7 +29,7 @@
   };
 
     outputs = { self, nixpkgs, ...}@inputs:
-    let 
+    let
       baseModules = [
         inputs.agenix.nixosModules.default
         inputs.home-manager.nixosModules.default
@@ -39,12 +39,12 @@
         rnl-simaolavos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = baseModules ++ [./hosts/rnl-simaolavos.nix];
+          modules = baseModules ++ [./hosts/rnl-simaolavos/configuration.nix];
         };
         dog = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = baseModules ++ [./hosts/dog.nix ./profiles/noctalia.nix];
+          modules = baseModules ++ [./hosts/dog/configuration.nix ./profiles/noctalia.nix];
         };
       };
     };
