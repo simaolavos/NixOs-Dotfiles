@@ -38,29 +38,20 @@
   documentation = {
     enable = true;
     man.enable = true;
-    dev.enable = true;	
+    dev.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     vim-full
-    spotify
     wget
     git
     unzip
     gnumake
     gcc
     man-pages
-    blesh
-    alacritty
-    tealdeer
-    dropbox
-    atuin
     inputs.agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
     python3
-    zed-editor
     ];
-
-    programs.firefox.enable = true;
 
 
     services.xserver = {
@@ -74,7 +65,7 @@
 
 
     programs.bash = {
-      blesh.enable = true;	
+      blesh.enable = true;
       interactiveShellInit = "eval \"$(atuin init bash)\"";
     };
 

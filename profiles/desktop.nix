@@ -20,11 +20,18 @@
 
   users.users.simaolavos.extraGroups = [ "docker" ];
 
-
+  programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
     fastfetch
     wakeonlan
+    spotify
+    blesh
+    alacritty
+    tealdeer
+    dropbox
+    zed-editor
+    atuin
     docker
     virt-manager
   ];
