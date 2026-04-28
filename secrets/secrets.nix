@@ -8,4 +8,5 @@ in {
     "nextcloud-secret.age".publicKeys = [ zeno rnl-simaolavos ];
     "grafana-secret-key.age".publicKeys = [ zeno rnl-simaolavos ];
     "grafana-secret.age".publicKeys = [ zeno rnl-simaolavos ];
+    "searxng-secret.age".publicKeys = [ zeno rnl-simaolavos ];
 }

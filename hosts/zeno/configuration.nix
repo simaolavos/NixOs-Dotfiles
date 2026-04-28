@@ -13,6 +13,7 @@
       ../../profiles/nextcloud.nix
       ../../profiles/adguard.nix
       ../../profiles/monitoring.nix
+      ../../profiles/searxng.nix
     ];
 
   boot.loader.grub.enable = true;

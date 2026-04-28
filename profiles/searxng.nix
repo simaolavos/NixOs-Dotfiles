@@ -3,46 +3,47 @@
 {
   age.secrets.searxng-secret = {
     file = ../secrets/searxng-secret.age;
-    user = "searx";
+    owner = "searx";
     group = "searx";
   };
 
   services.searx = {
     enable = true;
     package = pkgs.searxng;
-
+    
+    # Nas versões recentes, settings deve ser bem minimalista no início
     settings = {
       server = {
         port = 8888;
         bind_address = "127.0.0.1";
-        secret_key = "placeholder";
+        secret_key = "placeholder-nixos-build";
+        base_url = "https://search.sslavos.com/";
       };
       ui = {
-        static_path = "${pkgs.searxng}/share/static";
-        templates_path = "${pkgs.searxng}/share/templates";
         theme = "simple";
       };
-      search = {
-        safe_search = 0;
-        autocomplete = "google";
-      };
-
+      # Se o erro persistir, comenta esta secção de engines para testar
       engines = [
-        { name = "google"; engine = "google"; }
-        { name = "duckduckgo"; engine = "duckduckgo"; }
-        { name = "wikipedia"; engine = "wikipedia"; }
+        { name = "google"; engine = "google"; shortcut = "go"; }
+        { name = "duckduckgo"; engine = "duckduckgo"; shortcut = "ddg"; }
       ];
     };
   };
 
+  # Injetar a chave real
   systemd.services.searx.serviceConfig.Environment = [
-    "SEARX_SECRET_KEY__FILE=${config.age.secrets.searxng-key.path}"
+    "SEARX_SECRET_KEY__FILE=${config.age.secrets.searxng-secret.path}"
   ];
 
+  # Nginx (Cloudflare tratta do SSL)
   services.nginx.virtualHosts."search.sslavos.com" = {
     locations."/" = {
       proxyPass = "http://127.0.0.1:8888";
       proxyWebsockets = true;
+      extraConfig = ''
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+      '';
     };
   };
 
