@@ -42,6 +42,7 @@
     fastfetch
     wakeonlan
     spotify
+    neovim
     blesh
     alacritty
     tealdeer
@@ -50,5 +51,6 @@
     atuin
     docker
     virt-manager
+    cargo
   ];
 }
