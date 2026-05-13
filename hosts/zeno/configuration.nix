@@ -15,7 +15,7 @@
       ../../profiles/monitoring.nix
       ../../profiles/searxng.nix
       ../../profiles/gitea.nix
-      ../../profiles/code-server.nix
+      # ../../profiles/code-server.nix
     ];
 
   boot.loader.grub.enable = true;
