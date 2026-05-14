@@ -15,6 +15,7 @@
       ../../profiles/monitoring.nix
       ../../profiles/searxng.nix
       ../../profiles/gitea.nix
+      ../../profiles/musicgrabber.nix
       # ../../profiles/code-server.nix
     ];
 
