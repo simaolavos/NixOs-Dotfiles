@@ -19,7 +19,7 @@
     };
     volumes = [
       "/home/simaolavos/data:/data:rw"
-      "/var/lib/navidrome/music:/music:rw"
+      "/data/music:/music:rw"
     ];
     ports = [
       "38274:8080/tcp"

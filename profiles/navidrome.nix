@@ -5,7 +5,7 @@
     settings = {
       Address = "127.0.0.1";
       Port = 4533;
-      MusicFolder = "/var/lib/navidrome/music";
+      MusicFolder = "/data/music";
     };
   };
   services.nginx.virtualHosts."music.sslavos.com" = {
