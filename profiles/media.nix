@@ -4,6 +4,7 @@
   services.jellyfin = {
     enable = true;
   };
+  networking.firewall.allowedTCPPorts = [ 8096 ];
 
   services.nginx.virtualHosts."media.sslavos.com" = {
     locations."/" = {

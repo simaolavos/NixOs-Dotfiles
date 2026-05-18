@@ -10,5 +10,4 @@ in {
     "grafana-secret.age".publicKeys = [ zeno rnl-simaolavos ];
     "searxng-secret.age".publicKeys = [ zeno rnl-simaolavos ];
     "slskd-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
-    "transmission-rpc.age".publicKeys = [ zeno rnl-simaolavos ];
   }
