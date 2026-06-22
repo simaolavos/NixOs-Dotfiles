@@ -11,12 +11,13 @@
   users.users.simaolavos.extraGroups = [ "media" ];
 
   services.sonarr.enable = true;
-  services.radarr.enable = true;   
+  services.radarr.enable = true;
   services.prowlarr.enable = true; 
 
   services.qbittorrent = {
     enable = true;
   };
+  systemd.services.qbittorrent.serviceConfig.UMask = "0002";
 
   services.jellyseerr = {
     enable = true;
