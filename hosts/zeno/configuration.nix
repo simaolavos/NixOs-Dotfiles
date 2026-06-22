@@ -20,6 +20,7 @@
       #../../profiles/media-automation.nix
       #../../profiles/musicgrabber.nix
       # ../../profiles/code-server.nix
+      ../../profiles/couchdb.nix
     ];
 
   boot.loader.grub.enable = true;
