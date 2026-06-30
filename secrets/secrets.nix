@@ -11,4 +11,5 @@ in {
     "searxng-secret.age".publicKeys = [ zeno rnl-simaolavos ];
     "slskd-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
     "couchdb-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
+    "matrix-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
   }
