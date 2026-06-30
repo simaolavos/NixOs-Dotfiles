@@ -23,9 +23,6 @@
 
   programs.firefox.enable = true;
 
-  programs.bash = {
-    interactiveShellInit = "eval \"$(atuin init bash)\"";
-  };
 
 
   virtualisation = {
@@ -43,12 +40,10 @@
     wakeonlan
     spotify
     neovim
-    blesh
     alacritty
     tealdeer
     dropbox
     zed-editor
-    atuin
     docker
     virt-manager
     cargo

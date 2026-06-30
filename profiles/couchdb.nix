@@ -2,18 +2,24 @@
 
 {
   age.secrets.couchdb-secret = {
-     file = ../secrets/couchdb-secrets.age;
-     owner = "couchdb";
-     group = "couchdb";
+    file = ../secrets/couchdb-secrets.age;
+    owner = "couchdb";
+    group = "couchdb";
   };
 
   services.couchdb = {
     enable = true;
     port = 5984;
     bindAddress = "127.0.0.1";
-    adminUser = "admin";
-    adminPassFile = config.age.secrets.couchdb-secret.path;
   };
+
+  systemd.services.couchdb.preStart = ''
+    if ! grep -q "\[admins\]" /var/lib/couchdb/local.ini 2>/dev/null; then
+      echo "[admins]" >> /var/lib/couchdb/local.ini
+      echo "admin = $(cat ${config.age.secrets.couchdb-secret.path})" >> /var/lib/couchdb/local.ini
+      chmod 600 /var/lib/couchdb/local.ini
+    fi
+  '';
 
   services.nginx.virtualHosts."sync.sslavos.com" = {
     locations."/" = {

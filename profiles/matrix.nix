@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+{
 
   age.secrets.matrix-secrets = {
     file = ../secrets/matrix-secrets.age;
@@ -45,3 +46,4 @@
   services.cloudflared.tunnels."113fd93b-5514-4d9e-86d2-7eb0c6d7ea9e".ingress."matrix.sslavos.com" = {
     service = "http://localhost:80";
   };
+}

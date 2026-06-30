@@ -21,7 +21,7 @@
       #../../profiles/musicgrabber.nix
       # ../../profiles/code-server.nix
       ../../profiles/couchdb.nix
-      ../../profiles/matrix.nix
+      #../../profiles/matrix.nix
     ];
 
   boot.loader.grub.enable = true;

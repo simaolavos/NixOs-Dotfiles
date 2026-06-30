@@ -64,13 +64,6 @@
     };
 
 
-    programs.bash = {
-      blesh.enable = true;
-      interactiveShellInit = ''
-        echo -ne "\e[?25h" # Força o cursor a ficar visível no SSH
-      '';
-    };
-
     services.openssh =  {
       enable = true;
       settings = {
