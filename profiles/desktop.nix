@@ -47,5 +47,6 @@
     docker
     virt-manager
     cargo
+    steam
   ];
 }
