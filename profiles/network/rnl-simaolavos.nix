@@ -24,6 +24,9 @@
         }];
       };
 
+
+    };
+
       vlans={
         vlan1 ={
           id=1;
@@ -35,7 +38,6 @@
         prefixLength=22;
       }];
 
-    };
     firewall = {
       enable = true;
       allowedUDPPorts = [ 9 ];
