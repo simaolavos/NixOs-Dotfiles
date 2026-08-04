@@ -24,7 +24,16 @@
         }];
       };
 
-
+      vlans={
+        vlan1 ={
+          id=1;
+          interface="enp4s0";
+        };
+      };
+      interfaces.vlan1.ipv4.addresses=[{
+        address= "192.168.102.195";
+        prefixLength=22;
+      }];
 
     };
     firewall = {
