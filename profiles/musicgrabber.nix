@@ -10,6 +10,9 @@
 
   virtualisation.oci-containers.containers."music-grabber" = {
     image = "g33kphr33k/musicgrabber:latest";
+    # PLAYLIST_ALBUM_AS_NAME was added in recent MusicGrabber releases. Always
+    # refresh `latest` so an older cached image does not silently ignore it.
+    pull = "always";
     autoStart = true;
 
     environment = {

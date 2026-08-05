@@ -7,7 +7,13 @@
       Port = 4533;
       MusicFolder = "/data/music";
       AutoImportPlaylists = true;
-      PlaylistsPath = "/data/music/Playlists";
+      # This path is relative to MusicFolder.
+      PlaylistsPath = "Playlists";
+
+      # MusicGrabber keeps each track's original MusicBrainz release and date.
+      # Group albums by the visible Album Artist + Album tags instead, so a
+      # playlist tagged as a Various Artists compilation becomes one album.
+      PID.Album = "albumartistid,album";
     };
   };
   services.nginx.virtualHosts."music.sslavos.com" = {
