@@ -18,7 +18,7 @@
       ../../profiles/slskd.nix
       #../../profiles/media.nix
       #../../profiles/media-automation.nix
-      #../../profiles/musicgrabber.nix
+      ../../profiles/musicgrabber.nix
       # ../../profiles/code-server.nix
       ../../profiles/couchdb.nix
       #../../profiles/matrix.nix

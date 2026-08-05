@@ -6,6 +6,8 @@
       Address = "127.0.0.1";
       Port = 4533;
       MusicFolder = "/data/music";
+      AutoImportPlaylists = true;
+      PlaylistsPath = "/data/music/Playlists";
     };
   };
   services.nginx.virtualHosts."music.sslavos.com" = {
