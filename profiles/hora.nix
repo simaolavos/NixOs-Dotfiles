@@ -14,12 +14,36 @@
       PORT = "3000";
     };
     log-driver = "journald";
+    extraOptions = [
+      "--cap-drop=ALL"
+      "--cpus=1.0"
+      "--memory=512m"
+      "--pids-limit=256"
+      "--read-only"
+      "--security-opt=no-new-privileges:true"
+      "--tmpfs=/tmp:rw,noexec,nosuid,size=64m"
+    ];
   };
 
+  services.nginx.commonHttpConfig = ''
+    limit_req_zone $http_cf_connecting_ip zone=hora_api:10m rate=5r/s;
+  '';
+
   services.nginx.virtualHosts."horarios.sslavos.com" = {
+    extraConfig = ''
+      server_tokens off;
+    '';
     locations."/" = {
       proxyPass = "http://127.0.0.1:3100/";
       proxyWebsockets = true;
+    };
+    locations."~ ^/api/" = {
+      proxyPass = "http://127.0.0.1:3100";
+      proxyWebsockets = true;
+      extraConfig = ''
+        limit_req zone=hora_api burst=15 nodelay;
+        limit_req_status 429;
+      '';
     };
   };
 
