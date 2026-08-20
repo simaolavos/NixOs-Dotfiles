@@ -9,6 +9,7 @@
       ../../profiles/vaultwarden.nix
       ../../profiles/cloudflare-tunnel.nix
       ../../profiles/navidrome.nix
+      ../../profiles/kavita.nix
       ../../profiles/tailscale.nix
       ../../profiles/nextcloud.nix
       ../../profiles/adguard.nix

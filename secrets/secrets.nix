@@ -12,4 +12,5 @@ in {
     "slskd-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
     "couchdb-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
     "matrix-secrets.age".publicKeys = [ zeno rnl-simaolavos ];
+    "kavita-token.age".publicKeys = [ zeno rnl-simaolavos ];
   }
