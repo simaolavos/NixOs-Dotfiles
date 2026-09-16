@@ -49,5 +49,7 @@
     virt-manager
     cargo
     steam
+    codex
+    claude-code
   ];
 }
