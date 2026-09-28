@@ -28,10 +28,19 @@
     limit_req_zone $http_cf_connecting_ip zone=back2you:10m rate=20r/s;
   '';
 
-  # security headers (CSP etc.) come from the container's nginx and pass through the proxy
+  # security headers (CSP etc.) come from the container's nginx and pass through the proxy.
+  # TLS ends at Cloudflare; the tunnel is encrypted and cloudflared -> nginx is localhost only.
   services.nginx.virtualHosts."back2you.sslavos.com" = {
     extraConfig = ''
       server_tokens off;
+
+      # Cloudflare sets X-Forwarded-Proto: send plain-http visitors to https
+      if ($http_x_forwarded_proto = "http") {
+        return 301 https://$host$request_uri;
+      }
+
+      # browsers remember to use https for this host only (no includeSubDomains/preload)
+      add_header Strict-Transport-Security "max-age=31536000" always;
     '';
     locations."/" = {
       proxyPass = "http://127.0.0.1:3101/";
