@@ -23,6 +23,7 @@
       # ../../profiles/code-server.nix
       ../../profiles/couchdb.nix
       ../../profiles/hora.nix
+      ../../profiles/back2you.nix
       #../../profiles/matrix.nix
     ];
 
