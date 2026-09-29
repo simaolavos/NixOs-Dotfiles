@@ -1,9 +1,12 @@
-{ ... }:
+{ config, ... }:
 
-# Back2You (AMS project site): static site served by the hardened nginx image
-# built from the project's Dockerfile. The image is loaded locally, never pulled.
 
 {
+  age.secrets.back2you-htpasswd = {
+    file = ../secrets/back2you-htpasswd.age;
+    mode = "0444";
+  };
+
   virtualisation.docker.enable = true;
   virtualisation.oci-containers.backend = "docker";
 
@@ -12,6 +15,7 @@
     pull = "never";
     autoStart = true;
     ports = [ "127.0.0.1:3101:8080/tcp" ];
+    volumes = [ "${config.age.secrets.back2you-htpasswd.path}:/etc/nginx/auth/htpasswd:ro" ];
     log-driver = "journald";
     extraOptions = [
       "--cap-drop=ALL"
@@ -28,8 +32,6 @@
     limit_req_zone $http_cf_connecting_ip zone=back2you:10m rate=20r/s;
   '';
 
-  # security headers (CSP etc.) come from the container's nginx and pass through the proxy.
-  # TLS ends at Cloudflare; the tunnel is encrypted and cloudflared -> nginx is localhost only.
   services.nginx.virtualHosts."back2you.sslavos.com" = {
     extraConfig = ''
       server_tokens off;
