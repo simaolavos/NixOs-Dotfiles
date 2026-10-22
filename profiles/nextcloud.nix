@@ -9,7 +9,7 @@
   services.nextcloud = {
       enable = true;
 
-      package = pkgs.nextcloud34;
+      package = pkgs.nextcloud35;
 
       hostName = "cloud.sslavos.com";
       https = true;
@@ -19,8 +19,6 @@
 
       config = {
         dbtype = "pgsql";
-        adminuser = "admin";
-        adminpassFile = config.age.secrets.nextcloud-secret.path;
       };
 
     };
