@@ -11,6 +11,7 @@
       ../../profiles/navidrome.nix
       ../../profiles/kavita.nix
       ../../profiles/tailscale.nix
+      ../../profiles/php-patch.nix
       ../../profiles/nextcloud.nix
       ../../profiles/adguard.nix
       ../../profiles/monitoring.nix

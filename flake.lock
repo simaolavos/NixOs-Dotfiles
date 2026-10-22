@@ -111,6 +111,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-php": {
+      "locked": {
+        "lastModified": 1792615934,
+        "narHash": "sha256-MlvRfa1O5Cqc2/a+gG+l9TSuowEoCKCmrJ1d9oAVm0I=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "da6dc0e7b26060f2f71ce3ef7088fb56ee44fa36",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-26.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -158,6 +174,7 @@
         "agenix": "agenix",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-php": "nixpkgs-php",
         "noctalia": "noctalia",
         "noctalia-qs": "noctalia-qs",
         "simple-nixos-mailserver": "simple-nixos-mailserver"
