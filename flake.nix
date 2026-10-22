@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Only used by profiles/php-patch.nix for the PHP2Shell fix.
+    # Only used by overlays/php-patch.nix for the PHP2Shell fix.
     nixpkgs-php.url = "github:nixos/nixpkgs/nixos-26.05";
 
     noctalia = {
