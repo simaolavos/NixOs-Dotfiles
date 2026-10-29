@@ -58,6 +58,7 @@
     cargo
     steam
     claude-code
+    emacs
     vscode
   ];
 }
