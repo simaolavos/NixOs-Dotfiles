@@ -78,7 +78,7 @@ in
     '';
   };
 
-  services.nginx.virtualHosts.${webmail}.locations."^~ /branding/".alias = "${./mail-branding}/";
+  services.nginx.virtualHosts.${webmail}.locations."^~ /branding/".alias = "${../assets/mail-branding}/";
 
   # Roundcube reaches the mail server locally instead of via the router.
   networking.hosts."127.0.0.1" = [ fqdn ];
