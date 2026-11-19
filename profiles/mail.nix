@@ -7,8 +7,8 @@ in
 {
   imports = [ inputs.simple-nixos-mailserver.nixosModules.default ];
 
-  # Output of `nix-shell -p mkpasswd --run 'mkpasswd -s'`.
   age.secrets.mail-password-hash.file = ../secrets/mail-password-hash.age;
+  age.secrets.mail-spam-password-hash.file = ../secrets/mail-spam-password-hash.age;
 
   # One line: [mail.smtp2go.com]:587 <smtp user>:<smtp password>
   age.secrets.mail-relay-sasl = {
@@ -30,7 +30,12 @@ in
 
     accounts."me@sslavos.com" = {
       hashedPasswordFile = config.age.secrets.mail-password-hash.path;
-      aliases = [ "postmaster@sslavos.com" ];
+      aliases = [ "postmaster@sslavos.com" "simaolavos@sslavos.com" ];
+    };
+
+    accounts."spam@sslavos.com" = {
+      hashedPasswordFile = config.age.secrets.mail-spam-password-hash.path;
+      aliases = [];
     };
   };
 
