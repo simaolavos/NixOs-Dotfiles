@@ -14,6 +14,10 @@
       # Group albums by the visible Album Artist + Album tags instead, so a
       # playlist tagged as a Various Artists compilation becomes one album.
       PID.Album = "albumartistid,album";
+
+      # No plugins are bundled, so the module default plugin folder (inside the
+      # read-only package) does not exist and Navidrome fails creating it.
+      Plugins.Enabled = false;
     };
   };
   services.nginx.virtualHosts."music.sslavos.com" = {
