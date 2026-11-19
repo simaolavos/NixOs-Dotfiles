@@ -60,8 +60,25 @@ in
       $config['smtp_user'] = "%u";
       $config['smtp_pass'] = "%p";
       $config['username_domain'] = "sslavos.com";
+
+      $config['product_name'] = "sslavos mail";
+      $config['display_product_info'] = 0;
+      $config['skin_logo'] = [
+        "elastic:login" => "branding/login.svg",
+        "elastic:login[dark]" => "branding/login-dark.svg",
+        "elastic:login[small]" => "branding/login.svg",
+        "elastic:login[small-dark]" => "branding/login-dark.svg",
+        "elastic:*" => "branding/mark.svg",
+        "elastic:*[dark]" => "branding/mark-dark.svg",
+        "elastic:*[small]" => "branding/mark.svg",
+        "elastic:*[small-dark]" => "branding/mark-dark.svg",
+        "[favicon]" => "branding/mark.svg",
+        "[print]" => "branding/login.svg",
+      ];
     '';
   };
+
+  services.nginx.virtualHosts.${webmail}.locations."^~ /branding/".alias = "${./mail-branding}/";
 
   # Roundcube reaches the mail server locally instead of via the router.
   networking.hosts."127.0.0.1" = [ fqdn ];
